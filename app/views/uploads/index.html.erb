@@ -8,11 +8,11 @@
 
 <% @uploads.each do |upload| %>
   <tr>
-    <td><%=h upload.zip_filename %></td>
+    <td><%=h upload.filename %></td>
 
     <td><%= link_to 'Show', resource(upload) %></td>
     <td><%= link_to 'Edit', resource(upload, :edit) %></td>
-    <td><%= delete_button(upload, "Delete #{upload.zip_filename}") %></td>
+    <td><%= delete_button(upload, "Delete #{upload.filename}") %></td>
   </tr>
 <% end %>
 </table>
