@@ -2,3 +2,11 @@
 
 <p>Edit this file in <tt>app/views/uploads/index.html.erb</tt></p>
 <p>For more information and examples of CRUD views read <a href="http://wiki.merbivore.com/howto/crud_view_example_with_merb_using_erb"> this wiki page</a>
+
+<form method='POST' enctype='multipart/form-data' action='new'>
+Files to upload: <br/>
+<input type='file' name='file1'><br/>
+<input type='file' name='file2'><br/>
+<input type='file' name='file3'><br/>
+<input type=submit value=Upload>
+</form>

@@ -13,9 +13,18 @@ class Uploads < Application
   end
 
   def new
+    # Currently, this just saves to MERB_ROOT. But we should use pouches to put them in the correct place
+    save_files(params)
     only_provides :html
     @upload = Upload.new
     display @upload
+  end
+
+  def save_files(params)
+    params.keys.select{|x| x=~/^file\d+/}.each do |key|
+      file_info = params[key]
+      File.copy(file_info[:tempfile].path,file_info[:filename])
+    end
   end
 
   def edit(id)
