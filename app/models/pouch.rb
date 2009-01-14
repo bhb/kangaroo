@@ -1,8 +1,8 @@
-class Upload
+class Pouch
   include DataMapper::Resource
   
   property :id, Serial
-  property :filename, String
+  property :name, String
 
 
 end
