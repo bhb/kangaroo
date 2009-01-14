@@ -27,6 +27,8 @@
 
 Merb.logger.info("Compiling routes...")
 Merb::Router.prepare do
+  resources :pouches
+  resources :uploads
   # RESTful routes
   # resources :posts
   
@@ -40,5 +42,5 @@ Merb::Router.prepare do
   default_routes
   
   # Change this for your home page to be available at /
-  # match('/').to(:controller => 'whatever', :action =>'index')
+  match('/').to(:controller => 'pouches', :action =>'new')
 end

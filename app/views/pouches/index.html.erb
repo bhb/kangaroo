@@ -1,0 +1,20 @@
+<h1>All of the pouches</h1>
+
+<table>
+  <tr>
+    <th>Pouch name</th>
+
+    <th colspan="3">Actions</th>
+  </tr>
+
+<% @pouches.each do |pouch| %>
+  <tr>
+    <td><%=h pouch.name %></td>
+
+    <td><%= link_to 'Show', resource(pouch) %></td>
+    <td><%= link_to 'Edit', resource(pouch, :edit) %></td>
+    <td><%= delete_button(pouch, "Delete #{pouch.name}") %></td>
+  </tr>
+<% end %>
+</table>
+

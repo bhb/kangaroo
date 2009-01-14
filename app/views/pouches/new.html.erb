@@ -1,0 +1,12 @@
+<h1>Create a new pouch</h1>
+
+<%= form_for(@pouch, :action => resource(:pouches) ) do %>
+
+  <p>
+    <%= text_field :name, :label => "Name " %>
+  </p>
+
+  <p>
+    <%= submit "Create!" %>
+  </p>
+<% end =%>

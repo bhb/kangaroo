@@ -1,0 +1,21 @@
+<h1>Kangaroo uploads</h1>
+
+<table>
+  <tr>
+    <th>Filename</th>
+    <th colspan="3">Actions</th>
+  </tr>
+
+<% @uploads.each do |upload| %>
+  <tr>
+    <td><%=h upload.filename %></td>
+
+    <td><%= link_to 'Show', resource(upload) %></td>
+    <td><%= link_to 'Edit', resource(upload, :edit) %></td>
+    <td><%= delete_button(upload, "Delete #{upload.filename}") %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'New', resource(:uploads, :new) %>
+
