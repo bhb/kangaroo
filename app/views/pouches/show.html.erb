@@ -2,6 +2,13 @@
 
 <p>Uploaded files in the pouch go here</p>
 
-<p>Uploader goes here</p>
+<%= form :action => url(:controller => "uploads", :action => "create") do %>
+  <input type='hidden' name='pouch_id' value=<%= @pouch.id %>/>
+  <input type='file' name='file1'><br/>
+  <input type='file' name='file2'><br/>
+  <input type='file' name='file3'><br/>
+  <%= submit "Add to pouch" %>
+<% end =%>
+
 
 <p>Add a link to download a zipped file of the pouch</p>
