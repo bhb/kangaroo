@@ -1,4 +1,21 @@
-<h1>Uploads controller, index action</h1>
+<h1>Kangaroo uploads</h1>
 
-<p>Edit this file in <tt>app/views/uploads/index.html.erb</tt></p>
-<p>For more information and examples of CRUD views read <a href="http://wiki.merbivore.com/howto/crud_view_example_with_merb_using_erb"> this wiki page</a>
+<table>
+  <tr>
+    <th>Filename</th>
+    <th colspan="3">Actions</th>
+  </tr>
+
+<% @uploads.each do |upload| %>
+  <tr>
+    <td><%=h upload.zip_filename %></td>
+
+    <td><%= link_to 'Show', resource(upload) %></td>
+    <td><%= link_to 'Edit', resource(upload, :edit) %></td>
+    <td><%= delete_button(upload, "Delete #{upload.zip_filename}") %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'New', resource(:uploads, :new) %>
+
