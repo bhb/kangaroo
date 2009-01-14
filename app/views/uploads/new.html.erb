@@ -1,4 +1,11 @@
-<h1>Uploads controller, new action</h1>
+<h1>Upload form</h1>
 
-<p>Edit this file in <tt>app/views/uploads/new.html.erb</tt></p>
-<p>For more information and examples of CRUD views read <a href="http://wiki.merbivore.com/howto/crud_view_example_with_merb_using_erb"> this wiki page</a>
+<p>This is the worst form ever. You need to use it from uploads/new, not the root, because I hardcoded the form (since I'm just going to replace it anyway)</p>
+
+<form method='POST' enctype='multipart/form-data' action='create'>
+Files to upload: <br/>
+<input type='file' name='file1'><br/>
+<input type='file' name='file2'><br/>
+<input type='file' name='file3'><br/>
+<input type=submit value=Upload>
+</form>
