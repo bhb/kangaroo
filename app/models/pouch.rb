@@ -37,7 +37,7 @@ class Pouch
     # open or create the zip file
     Zip::ZipFile.open(bundle_filename, Zip::ZipFile::CREATE) {
       |zipfile|
-      zipfile.add("README","#{Merb.root}/README")
+      zipfile.add("README","#{Merb.root}/README.rdoc")
       # collect the files
       self.uploads.collect {
         |file|

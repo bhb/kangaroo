@@ -14,4 +14,8 @@
   <%= submit "Add to pouch" %>
 <% end =%>
 
-<p>Add a link to download a zipped file of the pouch</p>
+<%- if @pouch.uploads.size > 0 %>
+  <p><%= link_to 'Download a zip of these files', resource(@pouch, :format => :zip) %></p>
+<%- else %>
+  <p>Add some files to your pouch in order to download a zip of your files.</p>
+<%- end %>
