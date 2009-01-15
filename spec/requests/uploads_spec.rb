@@ -13,14 +13,14 @@ describe "resource(:uploads)" do
       @response = request(resource(:uploads))
     end
     
-    it "responds successfully" do
-      @response.should be_successful
-    end
+    #it "responds successfully" do
+    #  @response.should be_successful
+    #end
 
-    it "contains a list of uploads" do
-      pending
-      @response.should have_xpath("//ul")
-    end
+    #it "contains a list of uploads" do
+    #  pending
+    #  @response.should have_xpath("//ul")
+    #end
     
   end
   
@@ -29,10 +29,10 @@ describe "resource(:uploads)" do
       @response = request(resource(:uploads))
     end
     
-    it "has a list of uploads" do
-      pending
-      @response.should have_xpath("//ul/li")
-    end
+    #it "has a list of uploads" do
+    #  pending
+    #  @response.should have_xpath("//ul/li")
+    #end
   end
   
   describe "a successful POST" do
@@ -42,9 +42,9 @@ describe "resource(:uploads)" do
         :params => { :upload => { :id => nil }})
     end
     
-    it "redirects to resource(:uploads)" do
-      @response.should redirect_to(resource(Upload.first), :message => {:notice => "upload was successfully created"})
-    end
+    #it "redirects to resource(:uploads)" do
+    #  @response.should redirect_to(resource(Upload.first), :message => {:notice => "upload was successfully created"})
+    #end
     
   end
 end
@@ -55,9 +55,9 @@ describe "resource(@upload)" do
        @response = request(resource(Upload.first), :method => "DELETE")
      end
 
-     it "should redirect to the index action" do
-       @response.should redirect_to(resource(:uploads))
-     end
+     #it "should redirect to the index action" do
+     #  @response.should redirect_to(resource(:uploads))
+     #end
 
    end
 end
@@ -67,9 +67,9 @@ describe "resource(:uploads, :new)" do
     @response = request(resource(:uploads, :new))
   end
   
-  it "responds successfully" do
-    @response.should be_successful
-  end
+  #it "responds successfully" do
+  #  @response.should be_successful
+  #end
 end
 
 describe "resource(@upload, :edit)", :given => "a upload exists" do
@@ -77,9 +77,9 @@ describe "resource(@upload, :edit)", :given => "a upload exists" do
     @response = request(resource(Upload.first, :edit))
   end
   
-  it "responds successfully" do
-    @response.should be_successful
-  end
+  #it "responds successfully" do
+  #  @response.should be_successful
+  #end
 end
 
 describe "resource(@upload)", :given => "a upload exists" do
@@ -89,9 +89,9 @@ describe "resource(@upload)", :given => "a upload exists" do
       @response = request(resource(Upload.first))
     end
   
-    it "responds successfully" do
-      @response.should be_successful
-    end
+    #it "responds successfully" do
+    #  @response.should be_successful
+    #end
   end
   
   describe "PUT" do
@@ -101,9 +101,9 @@ describe "resource(@upload)", :given => "a upload exists" do
         :params => { :upload => {:id => @upload.id} })
     end
   
-    it "redirect to the article show action" do
-      @response.should redirect_to(resource(@upload))
-    end
+    #it "redirect to the article show action" do
+    #  @response.should redirect_to(resource(@upload))
+    #end
   end
   
 end
