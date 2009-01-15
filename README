@@ -1,5 +1,9 @@
 Kangaroo is a web app that allows users to easily share files via the web.
 
+The idea is to allow people to create a space to easily upload files to and then download them all as a zipped file.
+
+This is still pre-alpha stuff, but it will make a great Merb Slice someday soon.
+
 Contributors:
 Ben Brinckerhoff (ben@devver.net)
 Dan Mayer (dan<AT>devver.net)
