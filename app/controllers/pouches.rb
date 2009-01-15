@@ -9,13 +9,14 @@ class Pouches < Application
   def to_zip(id)
     @pouch = Pouch.get(id)
     bundle_filename = "#{Merb.root}/pouch/#{id}.zip"
-    
+    debugger
     # check to see if the file exists already
     if File.file?(bundle_filename)
-      return bundle_filename
+      render File.read(bundle_filename)
     end 
     
     # open or create the zip file
+    debugger
     Zip::ZipFile.open(bundle_filename, Zip::ZipFile::CREATE) {
       |zipfile|
       # collect the files
@@ -29,12 +30,13 @@ class Pouches < Application
     # set read permissions on the file
     File.chmod(0644, bundle_filename)
     
-    return bundle_filename
+    render bundle_filename
   end
 
   def show(id)
     @pouch = Pouch.get(id)
     raise NotFound unless @pouch
+    render @pouch if request.params[:format]=='zip'
     display @pouch
   end
 

@@ -24,4 +24,28 @@ class Pouch
     return rand_str
   end
 
+  def to_zip
+    bundle_filename = "#{Merb.root}/pouch/#{self.id}.zip"
+    # check to see if the file exists already
+    if File.file?(bundle_filename)
+      return File.read(bundle_filename)
+    end 
+    
+    # open or create the zip file
+    Zip::ZipFile.open(bundle_filename, Zip::ZipFile::CREATE) {
+      |zipfile|
+      # collect the files
+      self.uploads.collect {
+        |file|
+        # add file to archive
+        zipfile.add( "#{file.path}", "#{file.path}")
+      }
+    }
+    
+    # set read permissions on the file
+    File.chmod(0644, bundle_filename)
+    
+    return File.read(bundle_filename)
+  end
+
 end
