@@ -1,6 +1,10 @@
 <h1>Pouch: <%=h @pouch.name %></h1>
 
-<p>Uploaded files in the pouch go here</p>
+<p> Files in this pouch: <br/>
+  <%- @pouch.uploads.each do |upload| %>
+    <%= upload.display_filename %> <br/>
+  <%- end %>
+</p>
 
 <%= form :enctype =>'multipart/form-data' ,:action => url(:controller => "uploads", :action => "create") do %>
   <input type='hidden' name='pouch_id' value='<%= @pouch.id %>'>
