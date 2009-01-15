@@ -1,6 +1,6 @@
 class Pouches < Application
-  # provides :xml, :yaml, :js
-
+  provides :html, :zip
+  
   def index
     @pouches = Pouch.all
     display @pouches
