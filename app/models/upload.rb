@@ -1,6 +1,7 @@
 class Upload
   include DataMapper::Resource
   
+  belongs_to :pouch
   property :id, Serial
   property :filename, String
 
@@ -20,6 +21,10 @@ class Upload
 
   def self.path(pouch_id)
     File.join(Merb.root,pouch_root,pouch_id.to_s)
+  end
+
+  def display_filename
+    self.filename.gsub(self.class.path(self.pouch.id),'')
   end
 
 end

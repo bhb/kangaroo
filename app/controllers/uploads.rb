@@ -26,19 +26,22 @@ class Uploads < Application
   end
 
   def create#(upload)
-    pouch_id = params[:pouch_id]
+    pouch = Pouch.get(params[:pouch_id])
     params.keys.select{|x|x=~/^file\d+/}.each do |key|
       file_info = params[key]
       unless(file_info=="" || file_info==nil)
         tempfile = file_info[:tempfile]
         filename = file_info[:filename]
-        upload = Upload.save_and_create(pouch_id,filename,tempfile)
-        unless(upload.save)
+        upload = Upload.save_and_create(pouch.id,filename,tempfile)
+        if(upload.save)
+          pouch.uploads << upload
+          pouch.save
+        else
           message[:error] = "One or more uploads failed"
         end
       end
     end
-    redirect(url(:controller => 'pouches', :action => 'show', :id => pouch_id))
+    redirect(url(:controller => 'pouches', :action => 'show', :id => pouch.id))
   end
 
   def save_files(params)
