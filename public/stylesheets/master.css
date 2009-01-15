@@ -1,4 +1,29 @@
-#hd h1 { font-size: 130%; }
-#bd { min-height: 350px; }
-body { position: relative; }
-.bd { text-align: left; }
+#hd h1 {
+    font-size: 130%;
+    padding: 0.5em 0;
+}
+
+#bd { 
+    min-height: 350px;
+}
+
+body { 
+    position: relative;
+    font-family: Arial,Helvetica,sans-serif;
+}
+
+.bd { 
+    text-align: left;
+}
+
+p {
+    margin: 0.5em 0;
+}
+
+th {
+    font-weight: bold;
+}
+
+th, td {
+    padding: 0.5em 0.5em 0 0;
+}
