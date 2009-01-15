@@ -27,3 +27,4 @@ dependency "do_sqlite3" # If using another database, replace this
 
 require 'ftools'
 require 'ruby-debug'
+require 'fileutils'

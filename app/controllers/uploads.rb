@@ -18,15 +18,6 @@ class Uploads < Application
     display @upload
   end
 
-  def save_files(params)
-    params.keys.select{|x| x=~/^file\d+/}.each do |key|
-      file_info = params[key]
-      unless(file_info=="" || file_info==nil)
-        File.copy(file_info[:tempfile].path,file_info[:filename])
-      end
-    end
-  end
-
   def edit(id)
     only_provides :html
     @upload = Upload.get(id)
@@ -35,16 +26,28 @@ class Uploads < Application
   end
 
   def create#(upload)
-    # Currently, this just saves to MERB_ROOT. But we should use pouches to put them in the correct place
-    save_files(params)
-    render :new
-    #@upload = Upload.new(upload)
-    #if @upload.save
-    #  redirect resource(@upload), :message => {:notice => "Upload was successfully created"}
-    #else
-    #  message[:error] = "Upload failed to be created"
-    #  render :new
-    #end
+    pouch_id = params[:pouch_id]
+    params.keys.select{|x|x=~/^file\d+/}.each do |key|
+      file_info = params[key]
+      unless(file_info=="" || file_info==nil)
+        tempfile = file_info[:tempfile]
+        filename = file_info[:filename]
+        upload = Upload.save_and_create(pouch_id,filename,tempfile)
+        unless(upload.save)
+          message[:error] = "One or more uploads failed"
+        end
+      end
+    end
+    redirect(url(:controller => 'pouches', :action => 'show', :id => pouch_id))
+  end
+
+  def save_files(params)
+    params.keys.select{|x| x=~/^file\d+/}.each do |key|
+      file_info = params[key]
+      unless(file_info=="" || file_info==nil)
+        File.copy(file_info[:tempfile].path,file_info[:filename])
+      end
+    end
   end
 
   def update(id, upload)
