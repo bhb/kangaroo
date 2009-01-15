@@ -28,7 +28,7 @@ class Pouches < Application
   def create(pouch)
     if pouch['name']==''
       @pouch = Pouch.create(pouch)
-      @pouch.name = @pouch.id
+      @pouch.set_unique_name
     else
       @pouch = Pouch.new(pouch)
     end
