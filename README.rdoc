@@ -22,11 +22,10 @@ Point your browser at http://localhost:4000
 
 1. Create a new 'pouch' to hold your files
 2. Upload files into your pouch
-3. Download a zip of your files (at http://localhost:4000/pouches/show/POUCH_ID.zip)
+3. Download a zip of your files
 
 == Todo list for alpha
 
-* Add a link to download the zip file
 * Put in a better uploader
 
 Simple!
