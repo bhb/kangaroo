@@ -47,6 +47,20 @@ describe "resource(:pouches)" do
     end
     
   end
+
+  describe "a successful POST with name" do
+    before(:each) do
+      Pouch.all.destroy!
+      @response = request(resource(:pouches), :method => "POST", 
+                          :params => { :pouch => { :id => nil, :name => 'bill' }})
+    end
+    
+    it "redirects to resource(:pouches)" do
+      @response.should redirect_to(resource(Pouch.first), :message => {:notice => "pouch was successfully created"})
+    end
+    
+  end
+
 end
 
 describe "resource(@pouch)" do 

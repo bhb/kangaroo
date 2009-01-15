@@ -26,7 +26,12 @@ class Pouches < Application
   end
 
   def create(pouch)
-    @pouch = Pouch.new(pouch)
+    if pouch['name']==''
+      @pouch = Pouch.create(pouch)
+      @pouch.name = @pouch.id
+    else
+      @pouch = Pouch.new(pouch)
+    end
     if @pouch.save
       redirect resource(@pouch), :message => {:notice => "Pouch was successfully created"}
     else

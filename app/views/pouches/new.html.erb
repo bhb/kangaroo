@@ -10,3 +10,13 @@
     <%= submit "Create!" %>
   </p>
 <% end =%>
+<%= form_for(@pouch, :action => resource(:pouches) ) do %>
+
+  <p>
+    <%= hidden_field :name, :label => "Name", :value => '' %>
+  </p>
+
+  <p>
+    <%= submit "Create Unnamed Pouch" %>
+  </p>
+<% end =%>
