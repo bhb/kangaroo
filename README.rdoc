@@ -1,0 +1,63 @@
+= Kangaroo
+
+Kangaroo is a web app that allows users to easily share files via the web.
+
+The idea is to allow people to create a space to easily upload files to and
+then download them all as a zipped file.
+
+This is still pre-alpha stuff, but hopefully it will make a great Merb
+app/slice someday soon.
+
+== Installation
+
+(1) git clone git://github.com/bhb/kangaroo.git
+(2) cd kangaroo
+(3) thor merb:gem:redeploy
+(4) rake db:autoupgrade
+(5) ./bin/merb
+
+Point your browser at http://localhost:4000
+
+== Usage
+
+(1) Create a new 'pouch' to hold your files
+(2) Upload files into your pouch
+(3) Download a zip of your files (at http://localhost:4000/pouches/show/<ID>.zip)
+
+== Todo list for alpha
+
+* Add a link to download the zip file
+* Put in a better uploader
+
+Simple!
+
+== Kangaroo Core Team:
+
+* Ben Brinckerhoff (ben@devver.net)
+* Dan Mayer (dan<AT>devver.net)
+* Kurt Schrader (kurt@karmalab.org)
+
+== License
+
+(The MIT License)
+
+Copyright (c) 2008 Ben Brinckerhoff, Dan Mayer, and Kurt Schrader
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
