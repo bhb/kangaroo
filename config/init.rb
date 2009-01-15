@@ -1,6 +1,9 @@
 # Go to http://wiki.merbivore.com/pages/init-rb
  
 require 'config/dependencies.rb'
+require 'ftools'
+require 'ruby-debug'
+require 'fileutils'
  
 use_orm :datamapper
 use_test :rspec
