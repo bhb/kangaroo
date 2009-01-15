@@ -33,9 +33,10 @@ class Uploads < Application
         tempfile = file_info[:tempfile]
         filename = file_info[:filename]
         upload = Upload.save_and_create(pouch.id,filename,tempfile)
-        if(upload.save)
+        if(upload.save!)
           pouch.uploads << upload
-          pouch.save
+          pouch.save!
+          upload.save!
         else
           message[:error] = "One or more uploads failed"
         end
