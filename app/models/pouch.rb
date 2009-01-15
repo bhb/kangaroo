@@ -1,3 +1,6 @@
+require 'zip/zip'
+require 'zip/zipfilesystem'
+
 class Pouch
   include DataMapper::Resource
   
