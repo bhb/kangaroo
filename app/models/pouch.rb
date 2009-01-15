@@ -39,7 +39,7 @@ class Pouch
       self.uploads.collect {
         |file|
         # add file to archive
-        zipfile.add( "#{file.path}", "#{file.path}")
+        zipfile.add( "#{file.filename[1..file.filename.length]}", "#{file.filename}")
       }
     }
     
